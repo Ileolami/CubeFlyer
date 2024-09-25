@@ -5,6 +5,9 @@ var camera;
 var createScene = function () {
 	// This creates a basic Babylon Scene object (non-mesh)
 	var scene = new BABYLON.Scene(engine);
+	scene.clearColor = new BABYLON.Color4(0, 0, 0, 0); 
+	
+	
 
 	// This creates and positions a free camera (non-mesh)
 	camera = new BABYLON.TargetCamera("camera1", new BABYLON.Vector3(0, 0, -15), scene);
@@ -22,7 +25,7 @@ var createScene = function () {
 	light.intensity = 0.7;
 
 	// Add a ground and ceiling object
-	var ground = BABYLON.MeshBuilder.CreateBox("ground", { width: 100, depth: 6, height: 1 }, scene);
+	var ground = BABYLON.MeshBuilder.CreateBox("ground", { width: 100, depth: 6, height: 1,  }, scene);
 	var ceiling = BABYLON.MeshBuilder.CreateBox("ceiling", { width: 100, depth: 6, height: 1 }, scene);
 	ground.position.y = -gameHeight - 0.5; // +/- 0.5 to account for height of the cubes
 	ceiling.position.y = gameHeight + 0.5;
